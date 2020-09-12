@@ -1,0 +1,3 @@
+﻿  practic01.cpp
+D:\study\курс 2\джава\github\Tumanov_IKBO-01-19_AOD\practic01\practic01\practic01.cpp(11,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  practic01.vcxproj -> D:\study\курс 2\джава\github\Tumanov_IKBO-01-19_AOD\practic01\practic01\Debug\practic01.exe
