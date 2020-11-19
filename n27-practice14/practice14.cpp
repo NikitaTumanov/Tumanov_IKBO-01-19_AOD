@@ -159,7 +159,7 @@ void show(string a) {
 	cout << "Длина кода (ASCII): " << ascii_code(a).length() << endl;
 	cout << "Дисперсия " << ((float)haffman_code(a).length() / ascii_code(a).length()) << endl;
 }
-int main()//главная функция
+int main()
 {
 	setlocale(LC_ALL, "RUS");
 	string str = "tumanov nikita alekseevich";
