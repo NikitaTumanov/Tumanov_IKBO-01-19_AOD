@@ -12,14 +12,12 @@ using namespace std;
 map<char, string> codes;
 map<char, int> freq;
 
-struct MinHeapNode
-{
+struct MinHeapNode{
 	char data;
 	int freq;
 	MinHeapNode* left, * right;
 
-	MinHeapNode(char data, int freq)
-	{
+	MinHeapNode(char data, int freq){
 		left = right = NULL;
 		this->data = data;
 		this->freq = freq;
@@ -27,18 +25,15 @@ struct MinHeapNode
 };
 
 
-struct compare
-{
-	bool operator()(MinHeapNode* l, MinHeapNode* r)
-	{
+struct compare{
+	bool operator()(MinHeapNode* l, MinHeapNode* r){
 		return (l->freq > r->freq);
 	}
 };
 
 
 
-void storeCodes(struct MinHeapNode* root, string str)
-{
+void storeCodes(struct MinHeapNode* root, string str){
 	if (root == NULL)
 		return;
 	if (root->data != '$')
@@ -57,7 +52,6 @@ template<typename T> void print_queue(T& q, int size) {
 		if (q.top() != NULL) {
 			cout << setw(4) << q.top()->data << " ";
 		}
-
 		q.pop();
 
 	}
@@ -78,15 +72,13 @@ template<typename T> void print_queue(T& q, int size) {
 
 	std::cout << '\n';
 }
-void HuffmanCodes(int size)
-{
+void HuffmanCodes(int size){
 	struct MinHeapNode* left, * right, * top;
 	for (map<char, int>::iterator v = freq.begin(); v != freq.end(); v++)
 		minHeap.push(new MinHeapNode(v->first, v->second));
 	priority_queue<MinHeapNode*, vector<MinHeapNode*>, compare> minHeap2 = minHeap;
 	print_queue(minHeap2, size);
-	while (minHeap.size() != 1)
-	{
+	while (minHeap.size() != 1){
 		left = minHeap.top();
 		minHeap.pop();
 		right = minHeap.top();
@@ -98,20 +90,19 @@ void HuffmanCodes(int size)
 	}
 	storeCodes(minHeap.top(), "");
 }
-void calcFreq(string str, int n)
-{
+void calcFreq(string str, int n){
 	for (int i = 0; i < str.size(); i++) {
 		freq[str[i]]++;
 
 	}
 }
-string haffman_code(string input) {
+string haffman_code(string input){
 	string encodedString;
 	for (auto i : input)
 		encodedString += codes[i];
 	return encodedString;
 }
-void print_table(string str) {		
+void print_table(string str){		
 	cout << "Алфавит:              ";
 	for (auto item : freq) {
 		cout << setw(4) << item.first << " ";
@@ -133,11 +124,9 @@ void connection() {
 		cout << s.first << ": " << s.second << endl;
 	}
 }
-int toBin(int num)
-{
+int toBin(int num){
 	int bin = 0, k = 1;
-	while (num)
-	{
+	while (num){
 		bin += (num % 2) * k;
 		k *= 10;
 		num /= 2;
@@ -159,8 +148,7 @@ void show(string a) {
 	cout << "Длина кода (ASCII): " << ascii_code(a).length() << endl;
 	cout << "Дисперсия " << ((float)haffman_code(a).length() / ascii_code(a).length()) << endl;
 }
-int main()
-{
+int main(){
 	setlocale(LC_ALL, "RUS");
 	string str = "tumanov nikita alekseevich";
 	calcFreq(str, str.length());
