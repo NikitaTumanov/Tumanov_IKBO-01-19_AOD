@@ -47,7 +47,7 @@ int main(){
 			break; 
 		}
 		else {
-			cout << "Размер[" << i << "]: " << size[k] << endl;
+			cout << "Размер " << i << ": " << size[k] << endl;
 		}
 		sizes.push_back(size[k]);
 		k++;
