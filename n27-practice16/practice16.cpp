@@ -89,8 +89,8 @@ void TSP(int adj[N][N]){
 	TSPRec(adj, curr_bound, 0, 1, curr_path);
 }
 
-
-int main(){
+int main() {
+	setlocale(LC_ALL, "RUS");
 	int adj[N][N] = {
 		{0, 5, 10, 20},
 		{5, 0, 25, 15},
